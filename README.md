@@ -23,7 +23,24 @@ for the platform.
 
 ----------------------
 
-## Launchpad Live Inference
+## Start a Company
+
+Dragonfruit AI is the platform for you to bring your ideas to the world on an enterprise scale.
+
+- Launchpad gives company builders the ability to build and distribute computer vision
+  applications, with most of the CV heavy lifting done by Dragonfruit
+- Mix-and-match platform capabilities around managed hardware, managed inference, managed compute
+  and managed app canvas (including mobile), with your own business logic
+- Distribution of your products across select enterprise verticals like retail and manufacturing
+  is also possible
+
+> [!NOTE]
+> For more information on how to build your own launchpad applications, see the
+> example application: [dragonfruit-ai/launchpad-example-app](https://github.com/dragonfruit-ai/launchpad-example-app)
+
+----------------------
+
+## Experiment with Real-time CV
 
 Use Dragonfruit AI's live inference capabilities to quickly run real-time
 inference over your live video cameras, and receive results sent to a
@@ -69,17 +86,3 @@ The format depends on the chosen inference mode.
 > [!TIP]
 > Using webhooks in this way allows you to integrate Launchpad with your own applications and services.
 
-----------------------
-
-## Launchpad Custom App Development
-
-Dragonfruit AI is the platform for you to bring your ideas to the world on an enterprise scale.
-
-- Launchpad gives 3rd party developers the ability to build and distribute custom
-  applications via the Dragonfruit App platform.
-- Custom functionality can be combined with the platform's real-time capabilities
-  to create powerful new applications and experiences.
-
-> [!NOTE]
-> For more information on how to build your own launchpad applications, see the
-> example application: [dragonfruit-ai/launchpad-example-app](https://github.com/dragonfruit-ai/launchpad-example-app)
