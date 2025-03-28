@@ -34,10 +34,6 @@ Dragonfruit AI is the platform for you to bring your ideas to the world on an en
 - Distribution of your products across select enterprise verticals like retail and manufacturing
   is also possible
 
-> [!NOTE]
-> For more information on how to build your own launchpad applications, see the
-> example application: [dragonfruit-ai/launchpad-example-app](https://github.com/dragonfruit-ai/launchpad-example-app)
-
 ----------------------
 
 ## Experiment with Real-time CV
