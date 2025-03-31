@@ -52,13 +52,12 @@ to use Lovable to build your first computer vision app:
 2. In the lovable interface, enter the following prompt to create your project:
 
    `````markdown
-    1. Write a simple pure React component called `App`, without using
-       pre-existing imports. antd and axios can be used.
+    1. Write a simple pure React component called LPSafety, without using
+       pre-existing imports. Only `antd` (Ant Design) and `axios` can be used.
     
     2. Add a button called "Fetch License Plates" which calls the endpoint
        "get_plates". The button will fetch results containing a list of JSON
        objects like this one:
-    
        ```json
        {
          "plate_number": "OSE5J50",
@@ -68,24 +67,81 @@ to use Lovable to build your first computer vision app:
          "timestamp": 1734908445
        }
        ```
+       Render the fetched data should in an antd table.
     
-       The fetched data should be rendered in an antd table format.
+    3. Authenticate the axios request using an authorisation token obtained by calling the `getAuthToken` prop that is passed into the LPSafety component, along with:
+       ```javascript
+       {
+         host, // string; domain of the API server.
+         customer_id, // string; Customer ID with the application installed.
+         app_id, // number; Global identifier for this application.
+         getAuthToken, // () => Promise<string>; Get an authorisation token for making requests
+       }
+       ```
+       Use inputs to LPSafety in the mount point for the app.
    `````
 
    Submit the prompt to generate your initial project.
 
 3. Generate your component, in the chat type:
-   `````
-   give me a react component all in one file.
+   `````markdown
+   Give me a single react component for LPSafety all in one file.
    `````
 
 4. Save the component. Open a text editor (e.g. Notepad, VS Code) and paste
-   the generated code. Save the file as `App.tsx` in a folder named
+   the generated code. Save the file as `LPSafety.tsx` in a folder named
    `LPSafety.dfapp` on your computer.
 
-5. Upload your component. Zip the `LPSafety.dfapp` folder and upload it to
-   [Dragonfruit Launchpad](https://app.dragonfruit.ai/apps/120), our team
-   will review and deploy it for you.
+5. Create a config file in `LPSafety.dfapp` named `config.yaml` with the following content:
+   ```yaml
+   appName: LPSafety
+   appDisplayName: License Plate Safety
+   ```
+
+6. Upload your component. Zip the `LPSafety.dfapp` folder and upload it to
+   [Dragonfruit Launchpad](https://app.dragonfruit.ai/apps/120).
+   Your app will be deployed after approval by the Dragonfruit team.
+
+----------------------
+
+### Lovable Instructions (Advanced)
+
+Lovable is an AI-powered platform that turns prompts into code. Here's how
+to use Lovable to build your first computer vision app, and host it yourself.
+
+1. Follow steps 1 and 2 from the previous section to create your project.
+
+2Turn your app into a federated module so it can be distributed by the Dragonfruit Launchpad system.
+   In the lovable chat, enter the following prompt:
+
+   `````markdown
+   4. Distribute LPSafety by using the `@originjs/vite-plugin-federation` package, and enabling module federation
+      in `vite.config.ts` to build and output LPSafety to `dist/remote.js` so that the module can deployed as a
+      standalone file.
+      
+      ```javascript
+      import federation from '@originjs/vite-plugin-federation'
+      // ... rest of config ...
+      federation({
+        name: 'App', // unique name for your app
+        filename: 'remote.js', // build output file
+        exposes: {'./App': './src/App'}, // build input component file
+        shared: {react: {requiredVersion: '^18.0.0'}, 'react-dom': {requiredVersion: '^18.0.0'}}, // v18 needed for compatibility
+      })
+      ```
+      
+      *ONLY edit the `vite.config.ts`*.
+      
+      Ensure you can still run your app locally by creating development only files `index.html` and `main.tsx`. index.html is a simple html template that your app will be mounted in, and main.tsx should mount a wrapper component that provides dummy data to your app.
+   `````
+
+4. Connect your project to github to self-host the project.
+
+5. Deploy your app and make sure `remote.js` after building is accessible via a public URL.
+
+6. Create a new app in [Dragonfruit Launchpad](https://app.dragonfruit.ai/apps/120), configure the URL to point to your
+   self-hosted `remote.js` file, and submit the app for approval.
+   Your app will be deployed after approval by the Dragonfruit team.
 
 ----------------------
 
