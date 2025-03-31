@@ -36,6 +36,59 @@ Dragonfruit AI is the platform for you to bring your ideas to the world on an en
 
 ----------------------
 
+## Build a Computer Vision App
+
+This guide provides simple, vibe-coding instructions to help you build a
+computer vision app in seconds, using Dragonfruit AI's Launchpad. Even
+an 8-year-old can do it!
+
+### Lovable Instructions
+
+Lovable is an AI-powered platform that turns prompts into code. Here's how
+to use Lovable to build your first computer vision app:
+
+1. Sign up for [lovable.dev](https://lovable.dev)
+
+2. In the lovable interface, enter the following prompt to create your project:
+
+   `````markdown
+    1. Write a simple pure React component called `App`, without using
+       pre-existing imports. antd and axios can be used.
+    
+    2. Add a button called "Fetch License Plates" which calls the endpoint
+       "get_plates". The button will fetch results containing a list of JSON
+       objects like this one:
+    
+       ```json
+       {
+         "plate_number": "OSE5J50",
+         "site": {"name": "Site name", "site_id": 66},
+         "channel": {"name": "Channel name", "channel_id": 1},
+         "thumbnail_url": "https://{thumbnail_url}",
+         "timestamp": 1734908445
+       }
+       ```
+    
+       The fetched data should be rendered in an antd table format.
+   `````
+
+   Submit the prompt to generate your initial project.
+
+3. Generate your component, in the chat type:
+   `````
+   give me a react component all in one file.
+   `````
+
+4. Save the component. Open a text editor (e.g. Notepad, VS Code) and paste
+   the generated code. Save the file as `App.tsx` in a folder named
+   `LPSafety.dfapp` on your computer.
+
+5. Upload your component. Zip the `LPSafety.dfapp` folder and upload it to
+   [Dragonfruit Launchpad](https://app.dragonfruit.ai/apps/120), our team
+   will review and deploy it for you.
+
+----------------------
+
 ## Experiment with Real-time CV
 
 Use Dragonfruit AI's live inference capabilities to quickly run real-time
