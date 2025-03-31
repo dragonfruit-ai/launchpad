@@ -47,60 +47,59 @@ an 8-year-old can do it!
 Lovable is an AI-powered platform that turns prompts into code. Here's how
 to use Lovable to build your first computer vision app:
 
-1. Sign up for [lovable.dev](https://lovable.dev)
+1. **Sign up for Lovable**
+    - Sign up for [lovable.dev](https://lovable.dev)
 
-2. In the lovable interface, enter the following prompt to create your project:
+2. **Generate your Component**
+    - In the lovable interface, submit the following prompt to create your project:
 
-   `````markdown
-    1. Write a simple pure React component called LPSafety, without using
-       pre-existing imports. Only `antd` (Ant Design) and `axios` can be used.
-    
-    2. Add a button called "Fetch License Plates" which calls the endpoint
-       "get_plates". The button will fetch results containing a list of JSON
-       objects like this one:
-       ```json
-       {
-         "plate_number": "OSE5J50",
-         "site": {"name": "Site name", "site_id": 66},
-         "channel": {"name": "Channel name", "channel_id": 1},
-         "thumbnail_url": "https://{thumbnail_url}",
-         "timestamp": 1734908445
-       }
-       ```
-       Render the fetched data should in an antd table.
-    
-    3. Authenticate the axios request using an authorisation token obtained by calling the `getAuthToken` prop that is passed into the LPSafety component, along with:
-       ```javascript
-       {
-         host, // string; domain of the API server.
-         customer_id, // string; Customer ID with the application installed.
-         app_id, // number; Global identifier for this application.
-         getAuthToken, // () => Promise<string>; Get an authorisation token for making requests
-       }
-       ```
-       Use inputs to LPSafety in the mount point for the app.
-   `````
+      `````markdown
+      Write a simple pure React component called LPSafety, without using pre-existing imports. Only `antd` and `axios` can be used.
 
-   Submit the prompt to generate your initial project.
+      The component must accept the following props:
+      ```
+      inferface LPSafetyProps {
+        host: string; // domain of the API server.
+        customer_id: string;  // Customer ID with the application installed.
+        app_id: number;  // Global identifier for this application.
+        getAuthToken: () => Promise<string>;  // Get an authorisation token for making requests.
+      }
+      ```
 
-3. Generate your component, in the chat type:
-   `````markdown
-   Give me a single react component for LPSafety all in one file.
-   `````
+      Add a button called "Fetch License Plates" which, when clicked, calls the "get_plates" endpoint using axios, authenticating with the token obtained from getAuthToken(). The endpoint URL is constructed using the host prop.
 
-4. Save the component. Open a text editor (e.g. Notepad, VS Code) and paste
-   the generated code. Save the file as `LPSafety.tsx` in a folder named
-   `LPSafety.dfapp` on your computer.
+      The button will fetch results containing a list of JSON objects like this one:
+      ```json
+      {
+        "plate_number": "OSE5J50",
+        "site": {"name": "Site name", "site_id": 66},
+        "channel": {"name": "Channel name", "channel_id": 1},
+        "thumbnail_url": "https://{thumbnail_url}",
+        "timestamp": 1734908445
+      }
+      ```
 
-5. Create a config file in `LPSafety.dfapp` named `config.yaml` with the following content:
-   ```yaml
-   appName: LPSafety
-   appDisplayName: License Plate Safety
-   ```
+      Render the fetched data in an antd table.
+      `````
 
-6. Upload your component. Zip the `LPSafety.dfapp` folder and upload it to
-   [Dragonfruit Launchpad](https://app.dragonfruit.ai/apps/120).
-   Your app will be deployed after approval by the Dragonfruit team.
+3. **Collect your component**
+   - In the lovable chat for your new project, submit the following prompt:
+     `````markdown
+     Give me a single react component for LPSafety all in one file.
+     `````
+
+4. **Create your Launchpad App**
+   1. Open a text editor (e.g. Notepad, VS Code) and paste the generated code.
+     Save the file as `LPSafety.tsx` in a folder named `LPSafety.dfapp` on your computer.
+   2. Add a `config.yaml` file to the `LPSafety.dfapp` folder with the following content:
+      ```yaml
+      appName: LPSafety
+      appDisplayName: License Plate Safety
+      ```
+
+5. **Upload your Launchpad App**
+   - Zip the `LPSafety.dfapp` folder and upload it to [Dragonfruit Launchpad](https://app.dragonfruit.ai/apps/120).
+     Your app will be deployed after approval by the Dragonfruit team.
 
 ----------------------
 
