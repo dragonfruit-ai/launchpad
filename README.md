@@ -101,6 +101,23 @@ to use Lovable to build your first computer vision app:
    - Zip the `LPSafety.dfapp` folder and upload it to [Dragonfruit Launchpad](https://app.dragonfruit.ai/apps/120).
      Your app will be deployed after approval by the Dragonfruit team.
 
+
+### ChatGPT Instructions
+
+ChatGPT is an AI chat tool that can generate code from natural language. Here’s how to
+create an equivalent version of the LPSafety component using ChatGPT:
+
+1. **Sign up for ChatGPT**
+    - Sign up for [chat.openai.com](https://chat.openai.com)
+
+2. **Generate your Component**
+   - Enter the same prompt as step 2. in the Lovable instructions above, and submit it to ChatGPT.
+   - ChatGPT will create a new canvas containing your code for the component.
+
+3. **Create and Upload your Launchpad App**
+   - Follow steps 4. and 5. from the Lovable instructions above to create and upload your Launchpad app.
+
+
 ----------------------
 
 ## Experiment with Real-time CV
