@@ -36,7 +36,7 @@ Dragonfruit AI is the platform for you to bring your ideas to the world on an en
 
 ----------------------
 
-## Build a Computer Vision App
+## Build a Computer Vision App in Seconds
 
 This guide provides simple, vibe-coding instructions to help you build a
 computer vision app in seconds, using Dragonfruit AI's Launchpad. Even
@@ -100,47 +100,6 @@ to use Lovable to build your first computer vision app:
 
 6. Upload your component. Zip the `LPSafety.dfapp` folder and upload it to
    [Dragonfruit Launchpad](https://app.dragonfruit.ai/apps/120).
-   Your app will be deployed after approval by the Dragonfruit team.
-
-----------------------
-
-### Lovable Instructions (Advanced)
-
-Lovable is an AI-powered platform that turns prompts into code. Here's how
-to use Lovable to build your first computer vision app, and host it yourself.
-
-1. Follow steps 1 and 2 from the previous section to create your project.
-
-2Turn your app into a federated module so it can be distributed by the Dragonfruit Launchpad system.
-   In the lovable chat, enter the following prompt:
-
-   `````markdown
-   4. Distribute LPSafety by using the `@originjs/vite-plugin-federation` package, and enabling module federation
-      in `vite.config.ts` to build and output LPSafety to `dist/remote.js` so that the module can deployed as a
-      standalone file.
-      
-      ```javascript
-      import federation from '@originjs/vite-plugin-federation'
-      // ... rest of config ...
-      federation({
-        name: 'App', // unique name for your app
-        filename: 'remote.js', // build output file
-        exposes: {'./App': './src/App'}, // build input component file
-        shared: {react: {requiredVersion: '^18.0.0'}, 'react-dom': {requiredVersion: '^18.0.0'}}, // v18 needed for compatibility
-      })
-      ```
-      
-      *ONLY edit the `vite.config.ts`*.
-      
-      Ensure you can still run your app locally by creating development only files `index.html` and `main.tsx`. index.html is a simple html template that your app will be mounted in, and main.tsx should mount a wrapper component that provides dummy data to your app.
-   `````
-
-4. Connect your project to github to self-host the project.
-
-5. Deploy your app and make sure `remote.js` after building is accessible via a public URL.
-
-6. Create a new app in [Dragonfruit Launchpad](https://app.dragonfruit.ai/apps/120), configure the URL to point to your
-   self-hosted `remote.js` file, and submit the app for approval.
    Your app will be deployed after approval by the Dragonfruit team.
 
 ----------------------
