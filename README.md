@@ -59,14 +59,14 @@ to use Lovable to build your first computer vision app:
       The component must accept the following props:
       ```
       inferface LPSafetyProps {
-        host: string; // domain of the API server.
-        customer_id: string;  // Customer ID with the application installed.
-        app_id: number;  // Global identifier for this application.
+        apiHost: string; // domain of the API server.
+        customerId: string;  // Customer ID with the application installed.
+        appId: string;  // Global identifier for this application.
         getAuthToken: () => Promise<string>;  // Get an authorisation token for making requests.
       }
       ```
 
-      Add a button called "Fetch License Plates" which, when clicked, calls the "get_plates" endpoint using axios, authenticating with the token obtained from getAuthToken(). The endpoint URL is constructed using the host prop.
+      Add a button called "Fetch License Plates" which, when clicked, calls the "get_plates" endpoint using axios, authenticating with the token obtained from getAuthToken(). The endpoint URL is constructed using the api_host prop.
 
       The button will fetch results containing a list of JSON objects like this one:
       ```json
